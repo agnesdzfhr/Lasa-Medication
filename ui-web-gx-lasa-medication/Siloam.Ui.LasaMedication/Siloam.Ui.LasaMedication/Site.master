@@ -1,0 +1,237 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><%: Page.Title %> - Lasa Medication</title>
+
+	<asp:PlaceHolder runat="server">
+		<%: Scripts.Render("~/bundles/modernizr") %>
+	</asp:PlaceHolder>
+	<webopt:BundleReference runat="server" Path="~/Content/css" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+	<link rel="stylesheet" href="~/Content/bootstrap.css" />
+	<link rel="stylesheet" href="~/Content/Site.css" />
+	<link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css" />
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="Content/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="Content/font-awesome/css/style.css" />
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="Content/bootstrap.css" />
+	<link rel="stylesheet" href="Content/Custom.css" />
+
+	<!-- Datepicker -->
+	<link rel="stylesheet" href="Content/plugins/datepicker/datepicker3.css" />
+
+	<!-- Datatable -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+	<%--<link rel="stylesheet" href="Content/plugins/datatables/dataTables.bootstrap.css" />--%>
+
+	<!-- Toast -->
+	<link rel="stylesheet" href="Content/plugins/toast/toastr.css" />
+
+	<!-- Bootstrap toogle -->
+	<link rel="stylesheet" href="Content/plugins/bootstrap-toggle/bootstrap-toggle.css" />
+
+	<!-- Bootstrap select -->
+	<link rel="stylesheet" href="Content/plugins/bootstrap-select/bootstrap-select.css" />
+
+	<!-- Autocomplete Search -->
+	<link rel="stylesheet" href="Content/plugins/AutoComplete/jQueryUI-AutoComplete.css" />
+
+	<!-- Roboto FOnt -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+	<%--font awesome--%>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+	<%--Sweet alert--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.css">
+	<style>
+	</style>
+
+
+</head>
+<body>
+	<form id="FormApp" runat="server">
+		<asp:ScriptManager runat="server">
+			<Scripts>
+				<%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+				<%--Framework Scripts--%>
+				<asp:ScriptReference Name="MsAjaxBundle" />
+				<asp:ScriptReference Name="jquery" />
+				<asp:ScriptReference Name="bootstrap" />
+				<asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+				<asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+				<asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+				<asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+				<asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+				<asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+				<asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+				<asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+
+
+				<%--				<asp:ScriptReference Path="~/Content/plugins/datepicker/moment.js" />
+				<asp:ScriptReference Path="~/Content/plugins/datepicker/bootstrap-datepicker.js" />
+				<asp:ScriptReference Path="~/Content/plugins/datatables/jquery.dataTables.min.js" />
+				<asp:ScriptReference Path="~/Content/plugins/datatables/dataTables.bootstrap.min.js" />
+				<asp:ScriptReference Path="~/Content/plugins/toast/toastr.min.js" />
+				<asp:ScriptReference Path="~/Content/plugins/bootstrap-toggle/bootstrap-toggle.min.js" />
+				<asp:ScriptReference Path="~/Content/plugins/bootstrap-select/bootstrap-select.js" />
+				<asp:ScriptReference Path="~/Content/plugins/AutoComplete/jQueryUI-AutoComplete.js" />--%>
+
+				<asp:ScriptReference Name="WebFormsBundle" />
+
+
+				<%--Site Scripts--%>
+			</Scripts>
+		</asp:ScriptManager>
+		<nav id="topnav" class="topnav close-sidebar">
+			<div class="col d-inline">
+				<a href="#" onclick="sidebarToggle()">
+					<i class="fa-solid fa-bars"></i>
+				</a>
+				<p class="mt-1" style="text-align: left; font: normal normal normal 14px/17px Helvetica; letter-spacing: 0.34px;"><%: DateTime.Now.ToString("dddd, dd MMMM yyyy") %></p>
+			</div>
+
+
+			<div class="form-inline mr-5" style="max-width: 350px;">
+				<div class="d-inline">
+					<img class="mb-3" src="<%=Page.ResolveClientUrl("~/Assets/img/Worklist/atom-button-header-a-button-header-icon.svg")%>" alt="Alternate Text" />
+
+				</div>
+				<div class="d-inline mb-3">
+					<img style="height: 24px;" class="" src="<%=Page.ResolveClientUrl("~/Assets/img/Worklist/atom-icon-a-icon-globe.svg")%>" alt="Alternate Text" />
+				</div>
+				<div class="d-inline mb-3">
+					<div id="en" class="">EN</div>
+				</div>
+				<div class="d-inline" style="">
+					<div id="profile" class="text-right mb-3 ml-4" style="width: auto;">
+						<div class="dropdown">
+							<div style="cursor: pointer;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="d-inline">
+									<img style="height: 32px; width: 32px;" src="<%= Page.ResolveClientUrl("~/Assets/img/Worklist/img_avatar.png") %>" class="img-fluid mr-2 rounded-circle" alt="Responsive image" />
+								</div>
+								<div class="d-inline">
+									<asp:Label runat="server" ID="lblUsername"> Username </asp:Label>
+								</div>
+								<div class="d-inline">
+									<img src="<%= Page.ResolveClientUrl("~/Assets/img/Worklist/atom-icon-a-icon-angle-down.svg") %>" alt="Text" />
+								</div>
+							</div>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                               <asp:LinkButton class="dropdown-item text-danger" ID="LinkButtonLogout" runat="server" OnClick="LinkButtonLogout_Click">
+									<i class="fas fa-sign-out-alt"></i> Logout
+                               </asp:LinkButton>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div id="sidebar1" class="sidebar2 main-sidebar sidebar-style-2" tabindex="1" style="overflow: hidden; outline: none; padding: 0px;">
+			<aside id="sidebar-wrapper">
+				<div id="namaApp" class="sidebar-brand ml-2 mt-2">
+					<img src="<%= Page.ResolveClientUrl("~/Assets/img/Worklist/logo-aplikasi.jpg") %>" alt="" class="d-inline" />
+				</div>
+
+				<div class="nav-list">
+					<a href="#">
+						<div id="menu1" class="pt-3 mt-4 menu-side menu-terpilih">
+							<img class="ml-3 mr-2" src="<%=Page.ResolveClientUrl("~/Assets/img/Worklist/icon-obat.png")%>" />
+						</div>
+					</a>
+					<a href="#">
+						<div id="menu2" class="menu-side">
+							<img src="<%=Page.ResolveClientUrl("~/Assets/img/Worklist/icon-menulain.png")%>" />
+						</div>
+					</a>
+					<a href="#">
+						<div id="menu3" class="menu-side">
+							<img class="bg-transparent" src="<%=Page.ResolveClientUrl("~/Assets/img/Worklist/icon-menulain.png")%>" />
+						</div>
+					</a>
+				</div>
+			</aside>
+		</div>
+		<div id="mainContent" class="container body-content close-sidebar pr-0" style="max-width: 100%; width: auto">
+			<asp:ContentPlaceHolder ID="MainContent" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
+
+	<script>
+		let clickSidebar = true;
+
+		function sidebarToggle() {
+
+			if (clickSidebar) {
+				document.getElementById("mainContent").classList.remove("close-sidebar");
+				document.getElementById("sidebar1").classList.remove("sidebar2");
+				document.getElementById("topnav").classList.remove("close-sidebar");
+				document.getElementById("mainContent").classList.add("open-sidebar");
+				document.getElementById("sidebar1").classList.add("sidebar1");
+				document.getElementById("topnav").classList.add("open-sidebar");
+
+				var menu1 = `<span class="list-menu">Lasa Medication List</span>`;
+				var menu2 = `<span class="list-menu">Another Menu 1</span>`;
+				var menu3 = `<span class="list-menu">Another Menu 2</span>`;
+				var namaApp = `<div class="namaApp biru d-inline">Siloam</div>
+					<div class="namaApp hijau d-inline">Hospital</div>`;
+
+				$("#menu1").append(menu1);
+				$("#menu2").append(menu2);
+				$("#menu3").append(menu3);
+				$("#namaApp").append(namaApp);
+
+				clickSidebar = false;
+
+			} else {
+				console.log("success");
+				document.getElementById("mainContent").classList.remove("open-sidebar");
+				document.getElementById("sidebar1").classList.remove("sidebar1");
+				document.getElementById("topnav").classList.remove("open-sidebar");
+				document.getElementById("mainContent").classList.add("close-sidebar");
+				document.getElementById("sidebar1").classList.add("sidebar2");
+				document.getElementById("topnav").classList.add("close-sidebar");
+				var menu = document.querySelectorAll(".list-menu");
+				for (const list of menu) {
+					list.remove();
+				}
+				var namaApp = document.querySelectorAll(".namaApp");
+				for (const list of namaApp) {
+					list.remove();
+				}
+				clickSidebar = true;
+				console.log("no-prob");
+			}
+
+		}
+
+		let lblname = $("#lblUsername").html();
+		let myArray = lblname.split(" ");
+		if (myArray.length >= 2) {
+			let modifiedName = $("#lblUsername").html(myArray[0] + ' ' + myArray[1]);
+		}
+		else {
+			let modifiedName = $("#lblUsername").html(myArray[0]);
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
+</body>
+</html>

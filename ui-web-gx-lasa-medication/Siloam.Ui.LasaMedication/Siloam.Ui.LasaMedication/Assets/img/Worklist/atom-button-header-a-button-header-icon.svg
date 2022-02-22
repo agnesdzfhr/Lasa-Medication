@@ -1,0 +1,7 @@
+<svg id="atom_button_header_a-button-header-icon" data-name="atom/button/header/a-button-header-icon" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <rect id="Container" width="56" height="56" fill="none"/>
+  <g id="atom_icon_a-icon-question-circle" data-name="atom/icon/a-icon-question-circle" transform="translate(16 16)">
+    <rect id="Container-2" data-name="Container" width="24" height="24" fill="none"/>
+    <path id="Icon_awesome-question-circle" data-name="Icon awesome-question-circle" d="M20.313,10.313a10,10,0,1,1-10-10A10,10,0,0,1,20.313,10.313ZM10.581,3.619a5.223,5.223,0,0,0-4.7,2.571.485.485,0,0,0,.109.656l1.4,1.061a.484.484,0,0,0,.672-.086c.72-.914,1.214-1.443,2.311-1.443.824,0,1.843.53,1.843,1.329,0,.6-.5.914-1.312,1.37-.949.532-2.2,1.194-2.2,2.849v.161a.484.484,0,0,0,.484.484h2.258a.484.484,0,0,0,.484-.484v-.054c0-1.148,3.354-1.2,3.354-4.3,0-2.339-2.426-4.113-4.7-4.113Zm-.268,10a1.855,1.855,0,1,0,1.855,1.855A1.857,1.857,0,0,0,10.313,13.619Z" transform="translate(1.688 1.688)" fill="#fff"/>
+  </g>
+</svg>

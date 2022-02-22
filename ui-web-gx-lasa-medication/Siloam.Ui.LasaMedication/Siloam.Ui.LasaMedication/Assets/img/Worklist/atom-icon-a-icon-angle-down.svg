@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="atom_icon_a-icon-angle-down" data-name="atom/icon/a-icon-angle-down" transform="translate(0.351 0)">
+    <rect id="Container" width="24" height="24" transform="translate(-0.351 0)" fill="none"/>
+    <path id="Icon_awesome-angle-down" data-name="Icon awesome-angle-down" d="M4.47,12.2.218,7.953a.747.747,0,0,1,0-1.06l.706-.706a.747.747,0,0,1,1.06,0L5,9.2,8.011,6.187a.747.747,0,0,1,1.06,0l.706.706a.747.747,0,0,1,0,1.06L5.526,12.2A.743.743,0,0,1,4.47,12.2Z" transform="translate(7.002 3.033)" fill="#fff"/>
+  </g>
+</svg>
